@@ -27,6 +27,14 @@ Proyek ini tidak hanya berfokus pada hasil akhir berupa aplikasi *end-to-end*, t
    - Menganalisis kurva evaluasi seperti **Precision**, **Recall**, dan **mAP (Mean Average Precision)**.
    - Mengkaji capaian mAP50 dan mAP50-95 guna memastikan konsistensi dan akurasi model dalam membedakan antara pengendara yang patuh (berhelm) dan yang melanggar di berbagai kondisi gambar.
 
+### 📈 Hasil Evaluasi Model
+Setelah melalui proses pelatihan dan pengujian, model YOLO yang dilatih menghasilkan performa metrik sebagai berikut:
+
+- **Validasi (153 gambar)**: mAP@0.5 mencapai **86.07%** dengan Precision **80.02%** dan Recall **81.52%**.
+- **Test / Unseen Data (77 gambar)**: mAP@0.5 berada pada **79.53%** dengan Precision **76.06%** dan Recall **78.90%**.
+
+Berdasarkan hasil analisis di atas, model terbukti mampu menggeneralisasi dan mengenali objek pengendara berhelm maupun tanpa helm dengan cukup baik (~80% akurasi mAP@0.5) pada gambar-gambar baru yang belum pernah dilihat sebelumnya.
+
 ## 📂 Struktur Direktori
 ```text
 helmet-detection/
@@ -44,7 +52,8 @@ helmet-detection/
 │       ├── 01_data_preparation.ipynb
 │       ├── 02_data_exploration.ipynb
 │       ├── 03_training.ipynb
-│       └── 04_evaluate.ipynb
+│       ├── 04_evaluate.ipynb
+│       └── 05_demo.ipynb            # Notebook alternatif untuk menjalankan demo deteksi
 ├── .gitignore               # Konfigurasi file yang diabaikan oleh Git
 ├── README.md                # Dokumentasi utama proyek (File ini)
 └── requirements.txt         # Dependensi keseluruhan proyek untuk tahap Development
@@ -90,10 +99,15 @@ Pastikan Anda memiliki **Python 3.10+** yang terinstal di sistem Anda.
 4. Buka tautan lokal yang diberikan di terminal (secara *default* adalah `http://localhost:8501`) pada *web browser* Anda.
 
 ## 📸 Penggunaan
+
+### Opsi 1: Streamlit Web App
 1. Buka aplikasi web di browser.
 2. Unggah gambar (mendukung format `.jpg`, `.jpeg`, `.png`, dll.) pada kolom *file uploader* yang disediakan.
 3. Atur *slider* **Confidence Threshold** untuk menyesuaikan tingkat kepekaan model (nilai standar: 0.50). Menurunkan threshold akan mendeteksi lebih banyak objek, sementara menaikkannya akan memperketat deteksi.
 4. Hasil deteksi berupa *bounding box* berserta jumlah kalkulasi orang berhelm dan tanpa helm akan muncul secara otomatis.
+
+### Opsi 2: Jupyter Notebook (Alternatif)
+Jika Anda ingin mencoba demo langsung di notebook tanpa perlu menjalankan server Streamlit, Anda dapat membuka file `src/notebooks/05_demo.ipynb`. Notebook ini menyediakan fungsionalitas yang sama di mana Anda dapat mengunggah gambar dan mengatur parameter *confidence threshold*.
 
 <!-- ## 📄 Lisensi
 Proyek ini bersifat *Open Source*. Silakan melakukan *fork* dan memodifikasi aplikasi maupun pipeline *training* sesuai kebutuhan eksplorasi Anda. -->
