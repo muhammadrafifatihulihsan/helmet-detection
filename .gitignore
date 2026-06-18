@@ -1,4 +1,6 @@
 venv/
 src/notebooks/runs/
-src/dataset/*
+src/dataset/**/*
+!src/dataset/**/*/
+!src/dataset/**/*.gitkeep
 !src/dataset/dataset-source.txt
