@@ -1,0 +1,8 @@
+
+path: c:\Users\Pongo\Desktop\Belajar\ai-models\helmet-detection\src\dataset\processed_yolo
+train: train/images
+val: val/images
+test: test/images
+
+nc: 2
+names: ['With helmet', 'Without helmet']

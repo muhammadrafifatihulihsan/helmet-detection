@@ -1,0 +1,4 @@
+venv/
+src/notebooks/runs/
+src/dataset/*
+!src/dataset/dataset-source.txt
